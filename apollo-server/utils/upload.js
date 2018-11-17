@@ -1,10 +1,10 @@
 import { createWriteStream } from 'fs'
-import { resolve } from 'path'
+import { resolve as resolvep } from 'path'
 import { sync } from 'mkdirp'
 import { generate } from 'shortid'
 import { db } from './db'
 
-const uploadDir = resolve(__dirname, '../../live/uploads')
+const uploadDir = resolvep(__dirname, '../../live/uploads')
 
 // Ensure upload directory exists
 sync(uploadDir)
@@ -19,7 +19,7 @@ const storeUpload = async ({ stream, filename }) => {
     stream
       .pipe(createWriteStream(path))
       .on('finish', () => resolve({ id, path: urlPath }))
-      .on('error', reject),
+      .on('error', reject)
   )
 }
 
@@ -30,7 +30,7 @@ const recordFile = file =>
     .last()
     .write()
 
-export async function processUpload (file) {
+export async function processUpload(file) {
   const { stream, filename, mimetype, encoding } = await file
   const { id, path } = await storeUpload({ stream, filename })
   return recordFile({ id, filename, mimetype, encoding, path })

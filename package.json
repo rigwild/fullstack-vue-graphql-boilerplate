@@ -33,31 +33,6 @@
     "vue-cli-plugin-apollo": "^0.18.0",
     "vue-template-compiler": "^2.5.17"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier"
-    ],
-    "rules": {
-      "graphql/template-strings": [
-        "error",
-        {
-          "env": "literal",
-          "projectName": "app"
-        }
-      ]
-    },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "plugins": [
-      "graphql"
-    ]
-  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
