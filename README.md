@@ -24,10 +24,13 @@ Vue-Apollo examples are still in the repository.
 ## Project setup
 ```
 npm install
+
 ```
 or for full setup
 ```
 npm install --save-dev
+// If you have yarn
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
